@@ -108,18 +108,48 @@
             background-color: #1f242c;
         }
 
-        .slide {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            transition: opacity 1s ease-in-out;
-            object-fit: cover;
-        }
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Empuja el texto hacia abajo */
+}
 
-        .slide.active { opacity: 1; }
+/* La imagen ahora se adapta al tamaño del div padre */
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* El nuevo div de texto decorativo encima de la foto */
+.slide-caption {
+    position: relative;
+    z-index: 2; /* Se posiciona por encima de la imagen */
+    background: rgba(22, 27, 34, 0.85); /* Fondo oscuro semitransparente estilo IDE */
+    color: #a5d6ff; /* Color celeste para los textos de la carta */
+    padding: 15px;
+    font-size: 15px;
+    text-align: center;
+    border-top: 1px solid #30363d;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* La clase activa que cambia la opacidad del div completo */
+.slide.active {
+    opacity: 1;
+}
         .album-title { margin-top: 15px; font-size: 18px; color: #7ee787; }
 
         @keyframes fadeIn {
@@ -154,20 +184,25 @@
         </div>
     </div>
 
-    <div class="album-container" id="album">
-        <div class="carousel">
-            <!-- NOTA: Si usas enlaces web directos de tus imágenes (URLs), colócalos en el 'src' -->
-            <img src="foto1.jpg" class="slide active" alt="Foto 1">
-            <img src="foto2.jpg" class="slide" alt="Foto 2">
-            <img src="foto3.jpg" class="slide" alt="Foto 3">
-            <img src="foto3.jpg" class="slide" alt="Foto 4">
-            <img src="foto3.jpg" class="slide" alt="Foto 5">
-            <img src="foto3.jpg" class="slide" alt="Foto 6">
-            <img src="foto3.jpg" class="slide" alt="Foto 7">
-            <img src="foto3.jpg" class="slide" alt="Foto 8">
-            <img src="foto3.jpg" class="slide" alt="Foto 9">
-            <img src="foto3.jpg" class="slide" alt="Foto 10">
-        </div>
+    <div class="carousel">
+    <!-- Diapositiva 1 -->
+    <div class="slide active">
+        <img src="foto1.jpg" alt="Foto 1">
+        <div class="slide-caption">Una carta de papel dura unos años, pero una web es eterna... ❤️</div>
+    </div>
+
+    <!-- Diapositiva 2 -->
+    <div class="slide">
+        <img src="foto2.jpg" alt="Foto 2">
+        <div class="slide-caption">Cada línea de código está pensada en ti, LINN. ✨</div>
+    </div>
+
+    <!-- Diapositiva 3 -->
+    <div class="slide">
+        <img src="foto3.jpg" alt="Foto 3">
+        <div class="slide-caption">Mi variable favorita siempre serás tú. 🚀</div>
+    </div>
+</div>
         <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
     </div>
 
