@@ -4,8 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>❤️ Para la Sabrosura ❤️</title>
-    <!-- Librería de Confeti -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -248,38 +246,31 @@
 
         <div class="interactive-zone">
             <button class="btn" id="btnCompilar">¡Compilar Amor!</button>
-        </div>
 
+            <div class="carousel">
+                <!-- Diapositiva 1 -->
+                <div class="slide active">
+                    <img src="foto1.jpg" alt="Foto 1">
+                    <div class="slide-caption">Una carta de papel dura unos años, pero una web es eterna... ❤️</div>
+                </div>
 
-    <div class="carousel">
-        <!-- Diapositiva 1 -->
-        <div class="slide active">
-            <img src="foto1.jpg" alt="Foto 1">
-            <div class="slide-caption">Una carta de papel dura unos años, pero una web es eterna... ❤️</div>
-        </div>
+                <!-- Diapositiva 2 -->
+                <div class="slide">
+                    <img src="foto2.jpg" alt="Foto 2">
+                    <div class="slide-caption">Cada línea de código está pensada en ti ✨</div>
+                </div>
 
-        <!-- Diapositiva 2 -->
-        <div class="slide">
-            <img src="foto2.jpg" alt="Foto 2">
-            <div class="slide-caption">Cada línea de código está pensada en ti ✨</div>
-        </div>
-
-        <!-- Diapositiva 3 -->
-        <div class="slide">
-            <img src="foto3.jpg" alt="Foto 3">
-            <div class="slide-caption">Mi variable favorita siempre serás tú. 🚀</div>
+                <!-- Diapositiva 3 -->
+                <div class="slide">
+                    <img src="foto3.jpg" alt="Foto 3">
+                    <div class="slide-caption">Mi variable favorita siempre serás tú. 🚀</div>
+                </div>
+            </div>
+            <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
         </div>
     </div>
-    <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
-    </div>
-
     <script>
         document.getElementById('btnCompilar').addEventListener('click', function () {
-            // 1. Confeti inmediato
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 180, spread: 100, origin: { y: 0.6 } });
-            }
-
             // 2. Ejecución segura de Audio (Evita que caiga el script completo si falla la ruta)
             const audio = document.getElementById('musicaFondo');
             if (audio) {
