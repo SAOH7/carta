@@ -142,7 +142,7 @@
 
         /* Contenedor Oculto del Álbum */
         .album-container {
-            display: none;
+            display: none !important;
             width: 100%;
             max-width: 500px;
             margin-top: 30px;
@@ -244,9 +244,12 @@
             <div class="line"><span class="line-number">7</span><span>}</span></div>
         </div>
 
+        <!-- 1. ZONA INTERACTIVA: Aquí SOLO va el botón -->
         <div class="interactive-zone">
             <button class="btn" id="btnCompilar">¡Compilar Amor!</button>
-
+        </div> <!-- Cierre correcto de la zona interactiva -->
+        <!-- 2. CONTENEDOR DEL ÁLBUM: Este es el que el CSS oculta automáticamente al iniciar -->
+        <div class="album-container" id="album">
             <div class="carousel">
                 <!-- Diapositiva 1 -->
                 <div class="slide active">
@@ -267,41 +270,40 @@
                 </div>
             </div>
             <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
-        </div>
-    </div>
-    <script>
-        document.getElementById('btnCompilar').addEventListener('click', function () {
-            // 2. Ejecución segura de Audio (Evita que caiga el script completo si falla la ruta)
-            const audio = document.getElementById('musicaFondo');
-            if (audio) {
-                audio.play().catch(error => {
-                    console.warn("Audio bloqueado o archivo no encontrado:", error);
-                });
+        </div> <!-- Cierre correcto del álbum -->
+        <script>
+            document.getElementById('btnCompilar').addEventListener('click', function () {
+                // 2. Ejecución segura de Audio (Evita que caiga el script completo si falla la ruta)
+                const audio = document.getElementById('musicaFondo');
+                if (audio) {
+                    audio.play().catch(error => {
+                        console.warn("Audio bloqueado o archivo no encontrado:", error);
+                    });
+                }
+
+                // 3. UI Update
+                this.textContent = '¡Amor Ejecutándose con Éxito! ❤️';
+                this.style.backgroundColor = '#27c93f';
+
+                // 4. Mostrar Álbum
+                const album = document.getElementById('album');
+                if (album) {
+                    album.style.setProperty('display', 'block', 'important'); // Rompe el bloqueo del CSS
+                }
+
+            });
+
+            function iniciarCarrusel() {
+                const slides = document.querySelectorAll('.slide');
+                if (slides.length <= 1) return;
+
+                let currentSlide = 0;
+                setInterval(() => {
+                    slides[currentSlide].classList.remove('active');
+                    currentSlide = (currentSlide + 1) % slides.length;
+                    slides[currentSlide].classList.add('active');
+                }, 3500);
             }
-
-            // 3. UI Update
-            this.textContent = '¡Amor Ejecutándose con Éxito! ❤️';
-            this.style.backgroundColor = '#27c93f';
-
-            // 4. Mostrar Álbum
-            const album = document.getElementById('album');
-            if (album) {
-                album.style.display = 'block';
-                iniciarCarrusel();
-            }
-        });
-
-        function iniciarCarrusel() {
-            const slides = document.querySelectorAll('.slide');
-            if (slides.length <= 1) return;
-
-            let currentSlide = 0;
-            setInterval(() => {
-                slides[currentSlide].classList.remove('active');
-                currentSlide = (currentSlide + 1) % slides.length;
-                slides[currentSlide].classList.add('active');
-            }, 3500);
-        }
-    </script>
+        </script>
 </body>
 </html>
