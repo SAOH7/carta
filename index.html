@@ -1,9 +1,11 @@
-<!DOCTYPE html>
+html<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>❤️ Para la Sabrosura ❤️</title>
+    <!-- Incluimos la librería de confeti corregida -->
+    <script src="https://jsdelivr.net"></script>
     <style>
         :root {
             --bg-color: #0d1117;
@@ -58,17 +60,9 @@
             clip-path: path('M 6,1.8 C 4.5,-0.6 0,-0.6 0,4.2 C 0,8.4 6,12 6,12 C 6,12 12,8.4 12,4.2 C 12,-0.6 7.5,-0.6 6,1.8 Z');
         }
 
-            .dot.red {
-                background-color: #ff4d6d;
-            }
-
-            .dot.yellow {
-                background-color: #ffbd2e;
-            }
-
-            .dot.green {
-                background-color: #ff4d6d;
-            }
+        .dot.red { background-color: #ff4d6d; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #ff4d6d; }
 
         .title {
             color: var(--text-muted);
@@ -93,27 +87,11 @@
             user-select: none;
         }
 
-        .keyword {
-            color: #ff7b72;
-            font-weight: bold;
-        }
-
-        .string {
-            color: #a5d6ff;
-        }
-
-        .comment {
-            color: #8b949e;
-            font-style: italic;
-        }
-
-        .function {
-            color: #d2a8ff;
-        }
-
-        .number {
-            color: #79c0ff;
-        }
+        .keyword { color: #ff7b72; font-weight: bold; }
+        .string { color: #a5d6ff; }
+        .comment { color: #8b949e; font-style: italic; }
+        .function { color: #d2a8ff; }
+        .number { color: #79c0ff; }
 
         .interactive-zone {
             padding: 20px;
@@ -135,14 +113,14 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
-            .btn:hover {
-                background-color: #ff6b81;
-                transform: scale(1.05);
-            }
+        .btn:hover {
+            background-color: #ff6b81;
+            transform: scale(1.05);
+        }
 
         /* Contenedor Oculto del Álbum */
         .album-container {
-            display: none !important;
+            display: none !important; /* Mantiene oculto rigurosamente al inicio */
             width: 100%;
             max-width: 500px;
             margin-top: 30px;
@@ -171,26 +149,24 @@
             transition: opacity 1s ease-in-out;
             display: flex;
             flex-direction: column;
-            justify-content: flex-end; /* Empuja el texto hacia abajo */
+            justify-content: flex-end;
         }
 
-            /* La imagen ahora se adapta al tamaño del div padre */
-            .slide img {
-                width: 100%;
-                height: 100%;
-                object-fit: cover;
-                position: absolute;
-                top: 0;
-                left: 0;
-                z-index: 1;
-            }
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
 
-        /* El nuevo div de texto decorativo encima de la foto */
         .slide-caption {
             position: relative;
-            z-index: 2; /* Se posiciona por encima de la imagen */
-            background: rgba(22, 27, 34, 0.85); /* Fondo oscuro semitransparente estilo IDE */
-            color: #a5d6ff; /* Color celeste para los textos de la carta */
+            z-index: 2;
+            background: rgba(22, 27, 34, 0.85);
+            color: #a5d6ff;
             padding: 15px;
             font-size: 15px;
             text-align: center;
@@ -199,7 +175,6 @@
             box-sizing: border-box;
         }
 
-        /* La clase activa que cambia la opacidad del div completo */
         .slide.active {
             opacity: 1;
         }
@@ -211,23 +186,17 @@
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- AUDIO: Si no se encuentra el archivo 'suis_moi.mp3', el script continuará sin romperse -->
+    <!-- AUDIO DE FONDO -->
     <audio id="musicaFondo" src="suis_moi.mp3" loop></audio>
 
+    <!-- CAJA DEL IDE -->
     <div class="ide-container" id="ide">
         <div class="ide-header">
             <div class="buttons"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
@@ -244,66 +213,68 @@
             <div class="line"><span class="line-number">7</span><span>}</span></div>
         </div>
 
-        <!-- 1. ZONA INTERACTIVA: Aquí SOLO va el botón -->
         <div class="interactive-zone">
             <button class="btn" id="btnCompilar">¡Compilar Amor!</button>
-        </div> <!-- Cierre correcto de la zona interactiva -->
-        <!-- 2. CONTENEDOR DEL ÁLBUM: Este es el que el CSS oculta automáticamente al iniciar -->
-        <div class="album-container" id="album">
-            <div class="carousel">
-                <!-- Diapositiva 1 -->
-                <div class="slide active">
-                    <img src="foto1.jpg" alt="Foto 1">
-                    <div class="slide-caption">Una carta de papel dura unos años, pero una web es eterna... ❤️</div>
-                </div>
+        </div> 
+    </div> <!-- AQUÍ CIERRA EL IDE CORRECTAMENTE -->
 
-                <!-- Diapositiva 2 -->
-                <div class="slide">
-                    <img src="foto2.jpg" alt="Foto 2">
-                    <div class="slide-caption">Cada línea de código está pensada en ti ✨</div>
-                </div>
-
-                <!-- Diapositiva 3 -->
-                <div class="slide">
-                    <img src="foto3.jpg" alt="Foto 3">
-                    <div class="slide-caption">Mi variable favorita siempre serás tú. 🚀</div>
-                </div>
+    <!-- EL ÁLBUM QUEDA COMPLETAMENTE AFUERA Y SE CONTROLARÁ POR JAVASCRIPT -->
+    <div class="album-container" id="album">
+        <div class="carousel">
+            <!-- Diapositiva 1 -->
+            <div class="slide active">
+                <img src="foto1.jpg" alt="Foto 1">
+                <div class="slide-caption">Una carta de papel dura unos años, pero una web es eterna... ❤️</div>
             </div>
-            <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
-        </div> <!-- Cierre correcto del álbum -->
-        <script>
-            document.getElementById('btnCompilar').addEventListener('click', function () {
-                // 2. Ejecución segura de Audio (Evita que caiga el script completo si falla la ruta)
-                const audio = document.getElementById('musicaFondo');
-                if (audio) {
-                    audio.play().catch(error => {
-                        console.warn("Audio bloqueado o archivo no encontrado:", error);
-                    });
-                }
 
-                // 3. UI Update
-                this.textContent = '¡Amor Ejecutándose con Éxito! ❤️';
-                this.style.backgroundColor = '#27c93f';
+            <!-- Diapositiva 2 -->
+            <div class="slide">
+                <img src="foto2.jpg" alt="Foto 2">
+                <div class="slide-caption">Cada línea de código está pensada en ti Elba ✨</div>
+            </div>
+        </div>
+        <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
+    </div> 
 
-                // 4. Mostrar Álbum
-                const album = document.getElementById('album');
-                if (album) {
-                    album.style.setProperty('display', 'block', 'important'); // Rompe el bloqueo del CSS
-                }
-
-            });
-
-            function iniciarCarrusel() {
-                const slides = document.querySelectorAll('.slide');
-                if (slides.length <= 1) return;
-
-                let currentSlide = 0;
-                setInterval(() => {
-                    slides[currentSlide].classList.remove('active');
-                    currentSlide = (currentSlide + 1) % slides.length;
-                    slides[currentSlide].classList.add('active');
-                }, 3500);
+    <!-- CONTROLADORES JAVASCRIPT -->
+    <script>
+        document.getElementById('btnCompilar').addEventListener('click', function () {
+            // 1. Confeti
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 180, spread: 100, origin: { y: 0.6 } });
             }
-        </script>
+
+            // 2. Audio seguro
+            const audio = document.getElementById('musicaFondo');
+            if (audio) {
+                audio.play().catch(error => console.log("Audio en espera de interacción."));
+            }
+
+            // 3. Actualizar estado del botón
+            this.textContent = '¡Código Ejecutándose con Éxito! ❤️';
+            this.style.backgroundColor = '#27c93f';
+
+            // 4. Mostrar Álbum forzando la remoción del bloqueo CSS
+            const album = document.getElementById('album');
+            if (album) {
+                album.style.setProperty('display', 'block', 'important');
+            }
+
+            // 5. Encender el carrusel de divs
+            iniciarCarrusel();
+        });
+
+        function iniciarCarrusel() {
+            const slides = document.querySelectorAll('.slide');
+            if (slides.length <= 1) return; 
+            
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, 3500);
+        }
+    </script>
 </body>
 </html>
