@@ -1,9 +1,9 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LA CARTA Para Mi Novia ❤️</title>
+    <title>Para Mi Novia ❤️</title>
     <!-- Librería de Confeti -->
     <script src="https://jsdelivr.net"></script>
     <style>
@@ -48,74 +48,22 @@
             border-bottom: 1px solid #30363d;
         }
 
-        .buttons {
-            display: flex;
-            gap: 8px;
-            margin-right: 15px;
-        }
+        .buttons { display: flex; gap: 8px; margin-right: 15px; }
+        .dot { width: 12px; height: 12px; border-radius: 50%; }
+        .dot.red { background-color: #ff5f56; }
+        .dot.yellow { background-color: #ffbd2e; }
+        .dot.green { background-color: #27c93f; }
+        .title { color: var(--text-muted); font-size: 14px; }
 
-        .dot {
-            width: 12px;
-            height: 12px;
-            border-radius: 50%;
-        }
-
-            .dot.red {
-                background-color: #ff5f56;
-            }
-
-            .dot.yellow {
-                background-color: #ffbd2e;
-            }
-
-            .dot.green {
-                background-color: #27c93f;
-            }
-
-        .title {
-            color: var(--text-muted);
-            font-size: 14px;
-        }
-
-        .ide-body {
-            padding: 20px;
-            line-height: 1.6;
-        }
-
-        .line {
-            display: flex;
-            margin-bottom: 4px;
-        }
-
-        .line-number {
-            color: #484f58;
-            text-align: right;
-            width: 30px;
-            padding-right: 15px;
-            user-select: none;
-        }
-
-        .keyword {
-            color: #ff7b72;
-            font-weight: bold;
-        }
-
-        .string {
-            color: #a5d6ff;
-        }
-
-        .comment {
-            color: #8b949e;
-            font-style: italic;
-        }
-
-        .function {
-            color: #d2a8ff;
-        }
-
-        .number {
-            color: #79c0ff;
-        }
+        .ide-body { padding: 20px; line-height: 1.6; }
+        .line { display: flex; margin-bottom: 4px; }
+        .line-number { color: #484f58; text-align: right; width: 30px; padding-right: 15px; user-select: none; }
+        
+        .keyword { color: #ff7b72; font-weight: bold; }
+        .string { color: #a5d6ff; }
+        .comment { color: #8b949e; font-style: italic; }
+        .function { color: #d2a8ff; }
+        .number { color: #79c0ff; }
 
         .interactive-zone {
             padding: 20px;
@@ -137,12 +85,9 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
-            .btn:hover {
-                background-color: #ff6b81;
-                transform: scale(1.05);
-            }
+        .btn:hover { background-color: #ff6b81; transform: scale(1.05); }
 
-        /* Contenedor Oculto del Álbum Escénico */
+        /* Contenedor Oculto del Álbum */
         .album-container {
             display: none;
             width: 100%;
@@ -160,6 +105,7 @@
             overflow: hidden;
             box-shadow: 0 10px 25px rgba(0,0,0,0.6);
             border: 3px solid #30363d;
+            background-color: #1f242c;
         }
 
         .slide {
@@ -173,102 +119,89 @@
             object-fit: cover;
         }
 
-            .slide.active {
-                opacity: 1;
-            }
-
-        .album-title {
-            margin-top: 15px;
-            font-size: 18px;
-            color: #7ee787;
-        }
+        .slide.active { opacity: 1; }
+        .album-title { margin-top: 15px; font-size: 18px; color: #7ee787; }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
 
-    <!-- AUDIO DE FONDO: Suis-moi (El Principito) -->
-    <!-- Coloca tu archivo de música con el nombre 'suis_moi.mp3' en la misma carpeta -->
+    <!-- AUDIO: Si no se encuentra el archivo 'suis_moi.mp3', el script continuará sin romperse -->
     <audio id="musicaFondo" src="suis_moi.mp3" loop></audio>
 
     <div class="ide-container" id="ide">
         <div class="ide-header">
             <div class="buttons"><span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span></div>
-            <div class="title">amor_JOJIL.js — Editor</div>
+            <div class="title">amor_eterno.js — Editor</div>
         </div>
 
         <div class="ide-body">
-            <div class="line"><span class="line-number">1</span><span><span class="keyword">const</span> <span class="function">miAmor</span> = <span class="string">"LINN"</span>;</span></div>
+            <div class="line"><span class="line-number">1</span><span><span class="keyword">const</span> <span class="function">miAmor</span> = <span class="string">"Tú"</span>;</span></div>
             <div class="line"><span class="line-number">2</span><span><span class="keyword">while</span> (<span class="number">true</span>) {</span></div>
-            <div class="line"><span class="line-number">3</span><span>    <span class="function">pensarEn</span>(mi Hermosuro);</span></div>
-            <div class="line"><span class="line-number">4</span><span>    <span class="comment">// Eres el CSS que le dio estilo a mis días aburridos.</span></span></div>
+            <div class="line"><span class="line-number">3</span><span>    <span class="function">pensarEn</span>(miAmor);</span></div>
+            <div class="line"><span class="line-number">4</span><span>    <span class="comment">// Eres el CSS que le dio estilo a mis días desordenados.</span></span></div>
             <div class="line"><span class="line-number">5</span><span>    <span class="comment">// Y el bug más hermoso que nunca voy a corregir.</span></span></div>
             <div class="line"><span class="line-number">6</span><span>    <span class="function">actualizarVersion</span>(<span class="string">'HacerteFelizCadaDía'</span>);</span></div>
             <div class="line"><span class="line-number">7</span><span>}</span></div>
         </div>
 
         <div class="interactive-zone">
-            <button class="btn" id="btnCompilar">¡Compilar Carta!</button>
+            <button class="btn" id="btnCompilar">¡Compilar Amor!</button>
         </div>
     </div>
 
-    <!-- SECCIÓN DE FOTOS (Se activa tras el click) -->
     <div class="album-container" id="album">
         <div class="carousel">
-            <img src="foto1.jpg" class="slide active" alt="Una carta de papel dura unos años pero una pagina web es eterna...">
+            <!-- NOTA: Si usas enlaces web directos de tus imágenes (URLs), colócalos en el 'src' -->
+            <img src="foto1.jpg" class="slide active" alt="Foto 1">
+            <img src="foto2.jpg" class="slide" alt="Foto 2">
+            <img src="foto3.jpg" class="slide" alt="Foto 3">
         </div>
         <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
     </div>
 
     <script>
-        document.getElementById('btnCompilar').addEventListener('click', function () {
-            // 1. Lanzar confeti espectacular
-            confetti({
-                particleCount: 180,
-                spread: 100,
-                origin: { y: 0.6 }
-            });
+        document.getElementById('btnCompilar').addEventListener('click', function() {
+            // 1. Confeti inmediato
+            if (typeof confetti === 'function') {
+                confetti({ particleCount: 180, spread: 100, origin: { y: 0.6 } });
+            }
 
-            // 2. Intentar reproducir la música de fondo
+            // 2. Ejecución segura de Audio (Evita que caiga el script completo si falla la ruta)
             const audio = document.getElementById('musicaFondo');
-            audio.play().catch(error => {
-                console.log("El navegador bloqueó el autoplay inicial, requiere interacción.", error);
-            });
+            if (audio) {
+                audio.play().catch(error => {
+                    console.warn("Audio bloqueado o archivo no encontrado:", error);
+                });
+            }
 
-            // 3. Modificar el botón
+            // 3. UI Update
             this.textContent = '¡Código Ejecutándose con Éxito! ❤️';
             this.style.backgroundColor = '#27c93f';
 
-            // 4. Mostrar el álbum de fotos con animación
+            // 4. Mostrar Álbum
             const album = document.getElementById('album');
-            album.style.display = 'block';
-
-            // Enlazar el carrusel de fotos automático cada 3.5 segundos
-            iniciarCarrusel();
+            if (album) {
+                album.style.display = 'block';
+                iniciarCarrusel();
+            }
         });
 
         function iniciarCarrusel() {
             const slides = document.querySelectorAll('.slide');
-            let currentSlide = 0;
+            if (slides.length <= 1) return; 
 
+            let currentSlide = 0;
             setInterval(() => {
                 slides[currentSlide].classList.remove('active');
                 currentSlide = (currentSlide + 1) % slides.length;
                 slides[currentSlide].classList.add('active');
-            }, 3500); // Cambia de foto cada 3.5 segundos
+            }, 3500);
         }
     </script>
 </body>
 </html>
-
