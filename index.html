@@ -1,3 +1,4 @@
+html
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -60,9 +61,17 @@
             clip-path: path('M 6,1.8 C 4.5,-0.6 0,-0.6 0,4.2 C 0,8.4 6,12 6,12 C 6,12 12,8.4 12,4.2 C 12,-0.6 7.5,-0.6 6,1.8 Z');
         }
 
-        .dot.red { background-color: #ff4d6d; }
-        .dot.yellow { background-color: #ffbd2e; }
-        .dot.green { background-color: #ff4d6d; }
+            .dot.red {
+                background-color: #ff4d6d;
+            }
+
+            .dot.yellow {
+                background-color: #ffbd2e;
+            }
+
+            .dot.green {
+                background-color: #ff4d6d;
+            }
 
         .title {
             color: var(--text-muted);
@@ -87,11 +96,27 @@
             user-select: none;
         }
 
-        .keyword { color: #ff7b72; font-weight: bold; }
-        .string { color: #a5d6ff; }
-        .comment { color: #8b949e; font-style: italic; }
-        .function { color: #d2a8ff; }
-        .number { color: #79c0ff; }
+        .keyword {
+            color: #ff7b72;
+            font-weight: bold;
+        }
+
+        .string {
+            color: #a5d6ff;
+        }
+
+        .comment {
+            color: #8b949e;
+            font-style: italic;
+        }
+
+        .function {
+            color: #d2a8ff;
+        }
+
+        .number {
+            color: #79c0ff;
+        }
 
         .interactive-zone {
             padding: 20px;
@@ -113,10 +138,10 @@
             transition: transform 0.2s, background-color 0.2s;
         }
 
-        .btn:hover {
-            background-color: #ff6b81;
-            transform: scale(1.05);
-        }
+            .btn:hover {
+                background-color: #ff6b81;
+                transform: scale(1.05);
+            }
 
         /* Contenedor Oculto del Álbum */
         .album-container {
@@ -152,15 +177,15 @@
             justify-content: flex-end;
         }
 
-        .slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            position: absolute;
-            top: 0;
-            left: 0;
-            z-index: 1;
-        }
+            .slide img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 1;
+            }
 
         .slide-caption {
             position: relative;
@@ -184,10 +209,21 @@
             font-size: 18px;
             color: #7ee787;
         }
+        .oculto {
+            display: none;
+        }
 
         @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+
         }
     </style>
 </head>
@@ -203,7 +239,7 @@
             <div class="title">AMOR_JOJIL_ETERNO.js — Editor</div>
         </div>
 
-        <div class="ide-body">
+        <div class="ide-body" id="mi-codigo">
             <div class="line"><span class="line-number">1</span><span><span class="keyword">const</span> <span class="function">El_amor_de_mi_vida </span> = <span class="string">"Elba"</span>;</span></div>
             <div class="line"><span class="line-number">2</span><span><span class="keyword">while</span> (<span class="number">true</span>) {</span></div>
             <div class="line"><span class="line-number">3</span><span>    <span class="function">pensarEn</span>(El_amor_de_mi_vida);</span></div>
@@ -215,60 +251,33 @@
 
         <div class="interactive-zone">
             <button class="btn" id="btnCompilar">¡Compilar Amor!</button>
-        </div> 
+        </div>
     </div> <!-- AQUÍ CIERRA EL IDE CORRECTAMENTE -->
-
     <!-- EL ÁLBUM QUEDA COMPLETAMENTE AFUERA Y SE CONTROLARÁ POR JAVASCRIPT -->
     <div class="album-container" id="album">
         <div class="carousel">
             <!-- Diapositiva 1 -->
             <div class="slide active">
                 <img src="foto1.jpg" alt="Foto 1">
-                <div class="slide-caption">Una carta puede durar unos años, pero la web es eterna... ❤️</div>
+                <div class="slide-caption">Una carta de papel dura unos años, pero una web es eterna... ❤️</div>
             </div>
+
             <!-- Diapositiva 2 -->
             <div class="slide">
                 <img src="foto2.jpg" alt="Foto 2">
-                <div class="slide-caption">Cada línea de código la hice pensando en ti, TE AMO... ✨</div>
-            </div>
-                        <!-- Diapositiva 3 -->
-            <div class="slide">
-                <img src="foto2.jpg" alt="Foto 3">
-                <div class="slide-caption">Espero que el hilo rojo y la reencarnacion sea real, porque quiero elegirte a ti...</div>
-            </div>
-                        <!-- Diapositiva 4 -->
-            <div class="slide">
-                <img src="foto2.jpg" alt="Foto 4">
-                <div class="slide-caption">Y tal vez veamos esto y nos acordemos de esta vida, con errores y aciertos...</div>
-            </div>
-                        <!-- Diapositiva 5 -->
-            <div class="slide">
-                <img src="foto2.jpg" alt="Foto 5">
-                <div class="slide-caption">O tal vez nos reencontremos todos junto en ese momento donde mi vida era perfecta ✨</div>
-            </div>
-                        <!-- Diapositiva 6 -->
-            <div class="slide">
-                <img src="foto2.jpg" alt="Foto 6">
-                <div class="slide-caption">Pero aunque el tiempo pase espero seguir a tu lado...</div>
-            </div>
-                        <!-- Diapositiva 7 -->
-            <div class="slide">
-                <img src="foto2.jpg" alt="Foto 7">
-                <div class="slide-caption">Cada línea de código la hice pensando en ti ✨</div>
+                <div class="slide-caption">Cada línea de código está pensada en ti Elba ✨</div>
             </div>
         </div>
         <div class="album-title">✨ Ejecutando recuerdos felices... ✨</div>
-    </div> 
+    </div>
 
     <!-- CONTROLADORES JAVASCRIPT -->
     <script>
+        const codigo = document.getElementById('mi-codigo');
         document.getElementById('btnCompilar').addEventListener('click', function () {
-            // 1. Confeti
-            if (typeof confetti === 'function') {
-                confetti({ particleCount: 180, spread: 100, origin: { y: 0.6 } });
-            }
-
-            // 2. Audio seguro
+            // .toggle lo oculta si está visible, o lo muestra si estaba oculto
+             codigo.classList.toggle('oculto');
+             // 2. Audio seguro
             const audio = document.getElementById('musicaFondo');
             if (audio) {
                 audio.play().catch(error => console.log("Audio en espera de interacción."));
@@ -282,7 +291,7 @@
             const album = document.getElementById('album');
             if (album) {
                 album.style.setProperty('display', 'block', 'important');
-            }
+                      }
 
             // 5. Encender el carrusel de divs
             iniciarCarrusel();
@@ -290,8 +299,8 @@
 
         function iniciarCarrusel() {
             const slides = document.querySelectorAll('.slide');
-            if (slides.length <= 1) return; 
-            
+            if (slides.length <= 1) return;
+
             let currentSlide = 0;
             setInterval(() => {
                 slides[currentSlide].classList.remove('active');
